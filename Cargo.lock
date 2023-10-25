@@ -1419,7 +1419,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "episode-one"
+name = "episode-1"
 version = "0.1.0"
 dependencies = [
  "bevy",
