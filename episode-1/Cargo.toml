@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-bevy = "0.11.3"
+bevy = "0.12.0"
 
 # Enable a small amount of optimization in debug mode
 [profile.dev]
