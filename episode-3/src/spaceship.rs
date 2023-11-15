@@ -105,8 +105,7 @@ fn spaceship_weapon_controls(
                     scene: scene_assets.missiles.clone(),
                     transform: Transform::from_translation(
                         transform.translation + -transform.forward() * MISSILE_FORWARD_SPAWN_SCALAR,
-                    )
-                    .with_rotation(transform.rotation),
+                    ),
                     ..default()
                 },
             },

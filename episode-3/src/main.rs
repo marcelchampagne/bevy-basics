@@ -7,9 +7,9 @@ mod despawn;
 mod movement;
 mod spaceship;
 
-use asset_loader::AssetLoaderPlugin;
 use bevy::prelude::*;
 
+use asset_loader::AssetLoaderPlugin;
 use asteroids::AsteroidPlugin;
 use camera::CameraPlugin;
 use collision_detection::CollisionDetectionPlugin;
