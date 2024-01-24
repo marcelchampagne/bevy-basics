@@ -29,12 +29,8 @@ fn game_state_input_events(
 ) {
     if keyboard_input.just_pressed(KeyCode::Escape) {
         match state.get() {
-            GameState::InGame => {
-                next_state.set(GameState::Paused);
-            }
-            GameState::Paused => {
-                next_state.set(GameState::InGame);
-            }
+            GameState::InGame => next_state.set(GameState::Paused),
+            GameState::Paused => next_state.set(GameState::InGame),
             _ => (),
         }
     }
