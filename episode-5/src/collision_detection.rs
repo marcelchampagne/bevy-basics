@@ -127,14 +127,14 @@ fn apply_collision_damage(
 ) {
     for &CollisionEvent {
         entity,
-        collided_entity: other_entity,
+        collided_entity,
     } in collision_event_reader.read()
     {
         let Ok(mut health) = health_query.get_mut(entity) else {
             continue;
         };
 
-        let Ok(collision_damage) = collision_damage_query.get(other_entity) else {
+        let Ok(collision_damage) = collision_damage_query.get(collided_entity) else {
             continue;
         };
 
