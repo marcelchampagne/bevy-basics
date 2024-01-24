@@ -5,7 +5,8 @@ use rand::prelude::*;
 
 use crate::{
     asset_loader::SceneAssets,
-    collision_detection::Collider,
+    collision_detection::{Collider, CollisionDamage},
+    health::Health,
     movement::{Acceleration, MovingObjectBundle, Velocity},
     schedule::InGameSet,
 };
@@ -17,6 +18,8 @@ const SPAWN_RANGE_Z: Range<f32> = 0.0..25.0;
 const SPAWN_TIME_SECONDS: f32 = 1.0;
 const ROTATE_SPEED: f32 = 2.5;
 const RADIUS: f32 = 2.5;
+const HEALTH: f32 = 80.0;
+const COLLISION_DAMAGE: f32 = 35.0;
 
 #[derive(Component, Debug)]
 pub struct Asteroid;
@@ -76,6 +79,8 @@ fn spawn_asteroid(
             },
         },
         Asteroid,
+        Health::new(HEALTH),
+        CollisionDamage::new(COLLISION_DAMAGE),
     ));
 }
 
