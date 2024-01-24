@@ -1524,6 +1524,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "episode-5"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "rand",
+]
+
+[[package]]
 name = "equivalent"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"

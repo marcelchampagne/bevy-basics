@@ -1,0 +1,16 @@
+[package]
+name = "episode-5"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = "0.12.0"
+rand = "0.8.5"
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
