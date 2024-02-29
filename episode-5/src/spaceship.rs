@@ -71,7 +71,7 @@ fn spawn_spaceship(mut commands: Commands, scene_assets: Res<SceneAssets>) {
 
 fn spaceship_movement_controls(
     mut query: Query<(&mut Transform, &mut Velocity), With<Spaceship>>,
-    keyboard_input: Res<Input<KeyCode>>,
+    keyboard_input: Res<ButtonInput<KeyCode>>,
     time: Res<Time>,
 ) {
     let Ok((mut transform, mut velocity)) = query.get_single_mut() else {
@@ -81,15 +81,15 @@ fn spaceship_movement_controls(
     let mut roll = 0.0;
     let mut movement = 0.0;
 
-    if keyboard_input.pressed(KeyCode::D) {
+    if keyboard_input.pressed(KeyCode::KeyD) {
         rotation = -SPACESHIP_ROTATION_SPEED * time.delta_seconds();
-    } else if keyboard_input.pressed(KeyCode::A) {
+    } else if keyboard_input.pressed(KeyCode::KeyA) {
         rotation = SPACESHIP_ROTATION_SPEED * time.delta_seconds();
     }
 
-    if keyboard_input.pressed(KeyCode::S) {
+    if keyboard_input.pressed(KeyCode::KeyS) {
         movement = -SPACESHIP_SPEED;
-    } else if keyboard_input.pressed(KeyCode::W) {
+    } else if keyboard_input.pressed(KeyCode::KeyW) {
         movement = SPACESHIP_SPEED;
     }
 
@@ -114,7 +114,7 @@ fn spaceship_movement_controls(
 fn spaceship_weapon_controls(
     mut commands: Commands,
     query: Query<&Transform, With<Spaceship>>,
-    keyboard_input: Res<Input<KeyCode>>,
+    keyboard_input: Res<ButtonInput<KeyCode>>,
     scene_assets: Res<SceneAssets>,
 ) {
     let Ok(transform) = query.get_single() else {
@@ -144,7 +144,7 @@ fn spaceship_weapon_controls(
 fn spaceship_shield_controls(
     mut commands: Commands,
     query: Query<Entity, With<Spaceship>>,
-    keyboard_input: Res<Input<KeyCode>>,
+    keyboard_input: Res<ButtonInput<KeyCode>>,
 ) {
     let Ok(spaceship) = query.get_single() else {
         return;
