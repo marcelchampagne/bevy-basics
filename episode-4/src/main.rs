@@ -4,7 +4,6 @@ mod camera;
 mod collision_detection;
 mod debug;
 mod despawn;
-mod light;
 mod movement;
 mod schedule;
 mod spaceship;
@@ -17,7 +16,6 @@ use camera::CameraPlugin;
 use collision_detection::CollisionDetectionPlugin;
 use debug::DebugPlugin;
 use despawn::DespawnPlugin;
-use light::LightPlugin;
 use movement::MovementPlugin;
 use schedule::SchedulePlugin;
 use spaceship::SpaceshipPlugin;
@@ -26,7 +24,10 @@ fn main() {
     App::new()
         // Bevy built-ins.
         .insert_resource(ClearColor(Color::rgb(0.1, 0.0, 0.15)))
-        .add_plugins(LightPlugin)
+        .insert_resource(AmbientLight {
+            color: Color::default(),
+            brightness: 500.0,
+        })
         .add_plugins(DefaultPlugins)
         // User defined plugins.
         .add_plugins(AssetLoaderPlugin)
